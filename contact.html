@@ -1,0 +1,461 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ★CONTACTページのタイトル・説明文を変更したい場合はここを編集してください -->
+  <title>CONTACT（お問い合わせ＆よくある質問） | URBAN CLOSET（アーバンクローゼット）</title>
+  <meta name="description" content="URBAN CLOSET カスタマーサポートへのお問い合わせフォームおよびよくある質問（サイズ選び・送料・サイズ交換・お手入れ・再入荷）。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0A0A'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Helvetica Neue,Arial,sans-serif' font-size='24' font-weight='400' letter-spacing='2' fill='%23FFFFFF'%3EUC%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       共通グローバルヘッダー（全6ページ完全統一）
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <button type="button" class="header-menu-btn" id="menuOpenBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="fullscreenMenu">
+        <span class="header-menu-btn__bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+        <span class="header-menu-btn__label">MENU</span>
+      </button>
+
+      <a href="index.html" class="header-logo">URBAN CLOSET</a>
+
+      <div class="header-actions">
+        <button type="button" class="header-icon-btn" id="searchToggleBtn" aria-label="商品を検索する">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+          </svg>
+        </button>
+        <button type="button" class="header-icon-btn" id="cartOpenBtn" aria-label="ショッピングカートを開く">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 7h12l1 13H5L6 7z"></path>
+            <path d="M9 7V5a3 3 0 0 1 6 0v2"></path>
+          </svg>
+          <span class="cart-badge js-cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- リアルタイム商品検索パネル -->
+  <div class="search-panel" id="searchPanel" aria-hidden="true">
+    <div class="search-panel__inner">
+      <form class="search-form" id="headerSearchForm" role="search">
+        <label for="headerSearchInput" class="sr-only">キーワードで商品を検索</label>
+        <input type="search" id="headerSearchInput" class="search-form__input" placeholder="商品名・カテゴリー・素材で検索（例：コート、リネン、パンツ）" autocomplete="off">
+        <button type="submit" class="search-form__submit">SEARCH</button>
+        <button type="button" class="search-form__close" id="searchCloseBtn" aria-label="検索パネルを閉じる">×</button>
+      </form>
+      <div class="search-results" id="searchResultsContainer"></div>
+    </div>
+  </div>
+
+  <!-- フルスクリーン黒背景ナビゲーションメニュー（HOME / PRODUCTS / ABOUT / LOOKBOOK / CONTACT） -->
+  <nav class="fullscreen-menu" id="fullscreenMenu" aria-hidden="true" aria-label="メインナビゲーション">
+    <div class="fullscreen-menu__top">
+      <button type="button" class="fullscreen-menu__close" id="menuCloseBtn" aria-label="メニューを閉じる">CLOSE ×</button>
+      <a href="index.html" class="fullscreen-menu__logo">URBAN CLOSET</a>
+      <span></span>
+    </div>
+    <div class="fullscreen-menu__body">
+      <ul class="fullscreen-menu__list">
+        <li class="fullscreen-menu__item">
+          <a href="index.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">01</span>
+            <span class="fullscreen-menu__en">HOME</span>
+            <span class="fullscreen-menu__ja">トップ</span>
+          </a>
+        </li>
+        <li class="fullscreen-menu__item">
+          <a href="products.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">02</span>
+            <span class="fullscreen-menu__en">PRODUCTS</span>
+            <span class="fullscreen-menu__ja">商品一覧</span>
+          </a>
+        </li>
+        <li class="fullscreen-menu__item">
+          <a href="about.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">03</span>
+            <span class="fullscreen-menu__en">ABOUT</span>
+            <span class="fullscreen-menu__ja">ブランドストーリー</span>
+          </a>
+        </li>
+        <li class="fullscreen-menu__item">
+          <a href="lookbook.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">04</span>
+            <span class="fullscreen-menu__en">LOOKBOOK</span>
+            <span class="fullscreen-menu__ja">2025 SPRING ルックブック</span>
+          </a>
+        </li>
+        <li class="fullscreen-menu__item">
+          <a href="contact.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">05</span>
+            <span class="fullscreen-menu__en">CONTACT</span>
+            <span class="fullscreen-menu__ja">お問い合わせ・FAQ</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="fullscreen-menu__bottom">
+      <div class="fullscreen-menu__sublinks">
+        <a href="products.html?category=TOPS">TOPS</a>
+        <a href="products.html?category=OUTERWEAR">OUTERWEAR</a>
+        <a href="products.html?category=BOTTOMS">BOTTOMS</a>
+        <a href="products.html?category=ACCESSORIES">ACCESSORIES</a>
+      </div>
+      <div class="fullscreen-menu__sublinks">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+        <a href="https://www.pinterest.jp/" target="_blank" rel="noopener noreferrer">PINTEREST</a>
+        <a href="https://line.me/" target="_blank" rel="noopener noreferrer">LINE</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 右スライド式ミニカート -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="ショッピングカート">
+    <div class="cart-drawer__header">
+      <h2 class="cart-drawer__title">SHOPPING CART (<span id="cartDrawerCount">0</span>)</h2>
+      <button type="button" class="cart-drawer__close" id="cartCloseBtn" aria-label="カートを閉じる">×</button>
+    </div>
+    <div class="cart-shipping-bar">
+      <p class="cart-shipping-bar__text" id="cartShippingText">¥15,000（税込）以上のお買い上げで国内送料無料</p>
+      <div class="cart-shipping-bar__track">
+        <div class="cart-shipping-bar__fill" id="cartShippingFill"></div>
+      </div>
+    </div>
+    <div class="cart-drawer__body" id="cartDrawerBody"></div>
+    <div class="cart-drawer__footer" id="cartDrawerFooter">
+      <div class="cart-subtotal">
+        <span class="cart-subtotal__label">SUBTOTAL（税込）</span>
+        <span class="cart-subtotal__amount" id="cartSubtotalAmount">¥0</span>
+      </div>
+      <p class="cart-shipping-note">※送料は¥15,000以上のご注文で無料（通常全国一律 ¥660）</p>
+      <div class="cart-drawer__buttons">
+        <button type="button" class="btn-primary" id="cartCheckoutBtn"><span class="ib">PROCEED TO CHECKOUT /</span> <span class="ib">ご購入手続きへ</span></button>
+        <button type="button" class="btn-outline" id="cartContinueBtn"><span class="ib">CONTINUE SHOPPING /</span> <span class="ib">買い物を続ける</span></button>
+      </div>
+      <div class="cart-checkout-feedback" id="cartCheckoutFeedback" role="status"></div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       PAGE 06：CONTACT（お問い合わせフォーム・FAQ 5項目・SNSリンク）
+       ======================================================================== -->
+  <main>
+    <section class="page-hero">
+      <div class="container container--narrow">
+        <span class="eyebrow">CUSTOMER SUPPORT</span>
+        <h1 class="page-hero__title en-display">CONTACT &amp; SUPPORT</h1>
+        <p class="page-hero__lead lead-copy">
+          <span class="ib">サイズ選びのご相談や、</span><span class="ib">ご注文・配送に関するご質問など、</span><span class="ib">お気軽にお問い合わせください。</span><br>
+          <span class="ib">お問い合わせの前に、</span><span class="ib">ページ下部の「よくある質問（FAQ）」もあわせてご活用ください。</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         お問い合わせフォーム（社内共通ルール厳守：種別→内容→氏名→メールアドレスの順）
+         ====================================================================== -->
+    <section class="contact-section" aria-labelledby="contactFormHeading">
+      <div class="container container--narrow">
+        <h2 id="contactFormHeading" class="sr-only">お問い合わせ入力フォーム</h2>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <!-- 項目①：お問い合わせ種別（本題を先に配置） -->
+          <div class="form-field">
+            <label for="inquiryType" class="form-label">
+              <span>お問い合わせ種別 / INQUIRY TYPE</span>
+              <span class="badge-required">必須</span>
+            </label>
+            <div class="form-control-select-wrap">
+              <select id="inquiryType" name="inquiryType" class="form-select" required>
+                <option value="">選択してください</option>
+                <option value="サイズ感・素材についてのご相談">サイズ感・素材についてのご相談</option>
+                <option value="ご注文・配送について">ご注文・配送について</option>
+                <option value="返品・サイズ交換について">返品・サイズ交換について</option>
+                <option value="商品の在庫・再入荷について">商品の在庫・再入荷について</option>
+                <option value="プレス・お取引・その他のお問い合わせ">プレス・お取引・その他のお問い合わせ</option>
+              </select>
+            </div>
+            <p class="form-error-msg" id="errorInquiryType" role="alert"></p>
+          </div>
+
+          <!-- 項目②：お問い合わせ内容 -->
+          <div class="form-field">
+            <label for="inquiryMessage" class="form-label">
+              <span>お問い合わせ内容 / MESSAGE</span>
+              <span class="badge-required">必須</span>
+            </label>
+            <textarea
+              id="inquiryMessage"
+              name="inquiryMessage"
+              class="form-textarea"
+              placeholder="ご質問・ご相談内容をご入力ください。（サイズ選びでお迷いの場合は、ご身長や普段着用されているサイズをお書き添えいただくと、より具体的なご案内が可能です）"
+              required
+            ></textarea>
+            <p class="form-error-msg" id="errorInquiryMessage" role="alert"></p>
+          </div>
+
+          <hr class="form-divider" aria-hidden="true">
+
+          <!-- 項目③：氏名（本題のあとに連絡先情報を入力する安心設計） -->
+          <div class="form-field">
+            <label for="inquiryName" class="form-label">
+              <span>氏名 / NAME</span>
+              <span class="badge-required">必須</span>
+            </label>
+            <input
+              type="text"
+              id="inquiryName"
+              name="inquiryName"
+              class="form-input"
+              placeholder="例：山田 太郎"
+              autocomplete="name"
+              required
+            >
+            <p class="form-error-msg" id="errorInquiryName" role="alert"></p>
+          </div>
+
+          <!-- 項目④：メールアドレス -->
+          <div class="form-field">
+            <label for="inquiryEmail" class="form-label">
+              <span>メールアドレス / EMAIL</span>
+              <span class="badge-required">必須</span>
+            </label>
+            <input
+              type="email"
+              id="inquiryEmail"
+              name="inquiryEmail"
+              class="form-input"
+              placeholder="例：name@example.com"
+              autocomplete="email"
+              required
+            >
+            <p class="form-error-msg" id="errorInquiryEmail" role="alert"></p>
+          </div>
+
+          <!-- ★送信ボタン＆返信目安日数の補足文（日数を変えたい場合はここを編集してください） -->
+          <div class="contact-submit-area">
+            <button type="submit" class="btn-primary contact-submit-btn">SEND MESSAGE / 送信する</button>
+            <p class="contact-reply-note">
+              ※通常2〜3営業日以内に担当者よりメールにてご連絡いたします。<br>
+              （営業時間：平日 10:00〜18:00 / 土日祝休業）
+            </p>
+          </div>
+        </form>
+
+        <!-- ★送信完了メッセージパネル（返信目安日数を変えたい場合はここも編集してください） -->
+        <div class="contact-complete" id="contactCompletePanel" role="status" aria-live="polite">
+          <h3 class="contact-complete__en">THANK YOU FOR YOUR INQUIRY.</h3>
+          <p class="contact-complete__ja">お問い合わせを受け付けました。</p>
+          <p class="contact-complete__body">
+            お問い合わせいただき誠にありがとうございます。<br>
+            ご入力いただいた内容を確認のうえ、<strong>通常2〜3営業日以内にメールにてご連絡いたします。</strong><br>
+            万が一、数日経ってもメールが届かない場合は、迷惑メールフォルダをご確認いただくか、メールアドレスをご確認のうえ再度お問い合わせください。
+          </p>
+          <button type="button" class="btn-outline" id="contactNewInquiryBtn">新しいお問い合わせを入力する</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         よくある質問（FAQ 5項目・アコーディオン形式）
+         ====================================================================== -->
+    <section class="faq-section" id="faq" aria-labelledby="faqHeading">
+      <div class="container container--narrow">
+        <div style="margin-bottom: 36px;">
+          <h2 id="faqHeading" class="section-title-en">FREQUENTLY ASKED QUESTIONS</h2>
+          <p class="section-subcopy">よくいただくご質問</p>
+        </div>
+
+        <!-- ★FAQの質問と回答を変更したい場合は以下の各ブロックを編集してください -->
+        <div class="accordion" style="margin-top: 0;">
+          <!-- Q1 -->
+          <div class="accordion-item is-open" id="faq-size">
+            <button type="button" class="accordion-trigger js-accordion-trigger" aria-expanded="true">
+              <span>Q1. ユニセックス展開とのことですが、どのようにサイズを選べばよいですか？</span>
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-panel">
+              当ブランドのアイテムはすべて、性別を問わず美しいシルエットが出るよう計算されたユニセックス（男女兼用）規格のS・M・L・XL展開です。目安として、身長155〜165cm前後の方には「SまたはMサイズ」、身長170〜180cm前後の方には「Lサイズ」、180cm以上の方やよりゆったり着たい方には「XLサイズ」をおすすめしております。各商品詳細ページに実寸サイズ表と男女モデルの着用サイズを記載しておりますので、お手持ちのお洋服と比べながらお選びください。
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="accordion-item" id="faq-shipping">
+            <button type="button" class="accordion-trigger js-accordion-trigger" aria-expanded="false">
+              <span>Q2. 送料と、注文してから届くまでの日数を教えてください。</span>
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-panel">
+              1回のご注文合計金額が15,000円（税込）以上の場合は、国内送料無料でお届けいたします（15,000円未満の場合は全国一律660円）。ご注文確定後、通常1〜3営業日以内に倉庫より発送いたします。発送完了時には追跡番号を記載したメールをお送りいたします。
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="accordion-item" id="faq-exchange">
+            <button type="button" class="accordion-trigger js-accordion-trigger" aria-expanded="false">
+              <span>Q3. サイズが合わなかった場合、返品やサイズ交換はできますか？</span>
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-panel">
+              室内でのご試着のみ・商品タグが付いたままの未使用品に限り、商品到着後7日以内の「サイズ交換」を承っております。ご希望のサイズに在庫がある場合は速やかに交換手配をいたしますので、まずは本ページのお問い合わせフォームより「返品・サイズ交換について」を選択のうえご連絡ください。（※お客さま都合による返品・返金につきましては、不良品・誤配送を除き原則お受けしておりませんのでご了承ください）
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="accordion-item" id="faq-care">
+            <button type="button" class="accordion-trigger js-accordion-trigger" aria-expanded="false">
+              <span>Q4. 自宅の洗濯機でお手入れは可能ですか？</span>
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-panel">
+              Tシャツ、スウェットフーディ、リネンシャツ、パンツ類など多くのアイテムはご自宅でお洗濯が可能です。生地の風合いやシルエットを長く保つため、裏返して洗濯ネットに入れ、「手洗いコース（弱水流）」での中性洗剤のご使用と、風通しの良い日陰での吊り干しをおすすめしております。ステンカラーコートなどのアウター類は、商品内側の洗濯表示をご確認のうえクリーニング店へご相談ください。
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="accordion-item" id="faq-restock">
+            <button type="button" class="accordion-trigger js-accordion-trigger" aria-expanded="false">
+              <span>Q5. 完売しているカラー・サイズの再入荷はありますか？</span>
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-panel">
+              定番アイテムおよびシーズン人気商品につきましては、追加生産による再入荷を行う場合がございます。再入荷スケジュールや先行販売のご案内は、ニュースレターにご登録いただいた方へ優先的に配信しておりますので、ぜひご登録ください。個別商品の入荷予定についてはフォームからもお問い合わせいただけます。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- オフィシャルSNS導線 -->
+    <section class="sns-connect-section" aria-labelledby="snsHeading">
+      <div class="container container--narrow">
+        <h2 id="snsHeading" class="section-title-en">OFFICIAL CHANNELS</h2>
+        <p class="section-subcopy">最新のスタイリングや新作入荷情報を各SNSでも発信しています。</p>
+
+        <div class="sns-cards">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="sns-card">
+            <div>
+              <span class="sns-card__name">INSTAGRAM</span>
+              <span class="sns-card__sub">@urbancloset_official</span>
+            </div>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a href="https://www.pinterest.jp/" target="_blank" rel="noopener noreferrer" class="sns-card">
+            <div>
+              <span class="sns-card__name">PINTEREST</span>
+              <span class="sns-card__sub">Seasonal Visual Board</span>
+            </div>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a href="https://line.me/" target="_blank" rel="noopener noreferrer" class="sns-card">
+            <div>
+              <span class="sns-card__name">OFFICIAL LINE</span>
+              <span class="sns-card__sub">Restock &amp; Support</span>
+            </div>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       全ページ共通フッター（必須8要素完全網羅）
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand__logo">URBAN CLOSET</a>
+          <p class="footer-brand__tagline">
+            都市で生きる人の、新しいワードローブ。<br>
+            Architectural Unisex Wardrobe Based in Tokyo.
+          </p>
+          <div class="footer-newsletter">
+            <span class="footer-newsletter__label">NEWSLETTER REGISTRATION</span>
+            <form class="footer-newsletter__form js-newsletter-form" novalidate>
+              <label for="footerNewsletterEmail" class="sr-only">フッターニュースレター登録用メールアドレス</label>
+              <input type="email" id="footerNewsletterEmail" class="footer-newsletter__input" placeholder="name@example.com" required>
+              <button type="submit" class="footer-newsletter__btn">SUBSCRIBE</button>
+            </form>
+            <div class="footer-newsletter__msg js-newsletter-feedback" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-col__heading">NAVIGATION</h3>
+          <ul class="footer-col__list">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="products.html">PRODUCTS</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="lookbook.html">LOOKBOOK</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-col__heading">CATEGORIES</h3>
+          <ul class="footer-col__list">
+            <li><a href="products.html">ALL PRODUCTS</a></li>
+            <li><a href="products.html?category=TOPS">TOPS</a></li>
+            <li><a href="products.html?category=OUTERWEAR">OUTERWEAR</a></li>
+            <li><a href="products.html?category=BOTTOMS">BOTTOMS</a></li>
+            <li><a href="products.html?category=ACCESSORIES">ACCESSORIES</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-col__heading">SUPPORT &amp; LEGAL</h3>
+          <ul class="footer-col__list">
+            <li><a href="contact.html">お問い合わせ / CONTACT</a></li>
+            <li><a href="contact.html#faq">よくある質問 / SIZE &amp; FAQ</a></li>
+            <li><a href="contact.html#faq-shipping">配送・サイズ交換について</a></li>
+            <li><button type="button" data-legal-modal="privacy">プライバシーポリシー</button></li>
+            <li><button type="button" data-legal-modal="terms">利用規約</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="footer-sns">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+          <a href="https://www.pinterest.jp/" target="_blank" rel="noopener noreferrer">PINTEREST</a>
+          <a href="https://line.me/" target="_blank" rel="noopener noreferrer">LINE</a>
+        </div>
+        <div class="footer-legal-inline">
+          <button type="button" data-legal-modal="privacy">PRIVACY POLICY</button>
+          <button type="button" data-legal-modal="terms">TERMS OF SERVICE</button>
+        </div>
+        <p class="footer-copyright">&copy; 2025 URBAN CLOSET. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 利用規約・プライバシーポリシー共通モーダル -->
+  <div class="legal-modal" id="legalModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+    <div class="legal-modal__dialog">
+      <div class="legal-modal__header">
+        <h2 class="legal-modal__title" id="legalModalTitle">PRIVACY POLICY</h2>
+        <button type="button" class="legal-modal__close" id="legalModalCloseBtn" aria-label="モーダルを閉じる">×</button>
+      </div>
+      <div class="legal-modal__body" id="legalModalBody"></div>
+    </div>
+  </div>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

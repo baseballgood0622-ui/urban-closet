@@ -1,0 +1,356 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ★ABOUTページのタイトル・説明文を変更したい場合はここを編集してください -->
+  <title>ABOUT（ブランドストーリー） | URBAN CLOSET（アーバンクローゼット）</title>
+  <meta name="description" content="URBAN CLOSETの哲学・ブランドの始まり・素材へのこだわり・これからのビジョンをご紹介します。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0A0A'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Helvetica Neue,Arial,sans-serif' font-size='24' font-weight='400' letter-spacing='2' fill='%23FFFFFF'%3EUC%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       共通グローバルヘッダー（全6ページ完全統一）
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <button type="button" class="header-menu-btn" id="menuOpenBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="fullscreenMenu">
+        <span class="header-menu-btn__bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+        <span class="header-menu-btn__label">MENU</span>
+      </button>
+
+      <a href="index.html" class="header-logo">URBAN CLOSET</a>
+
+      <div class="header-actions">
+        <button type="button" class="header-icon-btn" id="searchToggleBtn" aria-label="商品を検索する">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+          </svg>
+        </button>
+        <button type="button" class="header-icon-btn" id="cartOpenBtn" aria-label="ショッピングカートを開く">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 7h12l1 13H5L6 7z"></path>
+            <path d="M9 7V5a3 3 0 0 1 6 0v2"></path>
+          </svg>
+          <span class="cart-badge js-cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- リアルタイム商品検索パネル -->
+  <div class="search-panel" id="searchPanel" aria-hidden="true">
+    <div class="search-panel__inner">
+      <form class="search-form" id="headerSearchForm" role="search">
+        <label for="headerSearchInput" class="sr-only">キーワードで商品を検索</label>
+        <input type="search" id="headerSearchInput" class="search-form__input" placeholder="商品名・カテゴリー・素材で検索（例：コート、リネン、パンツ）" autocomplete="off">
+        <button type="submit" class="search-form__submit">SEARCH</button>
+        <button type="button" class="search-form__close" id="searchCloseBtn" aria-label="検索パネルを閉じる">×</button>
+      </form>
+      <div class="search-results" id="searchResultsContainer"></div>
+    </div>
+  </div>
+
+  <!-- フルスクリーン黒背景ナビゲーションメニュー（HOME / PRODUCTS / ABOUT / LOOKBOOK / CONTACT） -->
+  <nav class="fullscreen-menu" id="fullscreenMenu" aria-hidden="true" aria-label="メインナビゲーション">
+    <div class="fullscreen-menu__top">
+      <button type="button" class="fullscreen-menu__close" id="menuCloseBtn" aria-label="メニューを閉じる">CLOSE ×</button>
+      <a href="index.html" class="fullscreen-menu__logo">URBAN CLOSET</a>
+      <span></span>
+    </div>
+    <div class="fullscreen-menu__body">
+      <ul class="fullscreen-menu__list">
+        <li class="fullscreen-menu__item">
+          <a href="index.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">01</span>
+            <span class="fullscreen-menu__en">HOME</span>
+            <span class="fullscreen-menu__ja">トップ</span>
+          </a>
+        </li>
+        <li class="fullscreen-menu__item">
+          <a href="products.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">02</span>
+            <span class="fullscreen-menu__en">PRODUCTS</span>
+            <span class="fullscreen-menu__ja">商品一覧</span>
+          </a>
+        </li>
+        <li class="fullscreen-menu__item">
+          <a href="about.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">03</span>
+            <span class="fullscreen-menu__en">ABOUT</span>
+            <span class="fullscreen-menu__ja">ブランドストーリー</span>
+          </a>
+        </li>
+        <li class="fullscreen-menu__item">
+          <a href="lookbook.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">04</span>
+            <span class="fullscreen-menu__en">LOOKBOOK</span>
+            <span class="fullscreen-menu__ja">2025 SPRING ルックブック</span>
+          </a>
+        </li>
+        <li class="fullscreen-menu__item">
+          <a href="contact.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">05</span>
+            <span class="fullscreen-menu__en">CONTACT</span>
+            <span class="fullscreen-menu__ja">お問い合わせ・FAQ</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="fullscreen-menu__bottom">
+      <div class="fullscreen-menu__sublinks">
+        <a href="products.html?category=TOPS">TOPS</a>
+        <a href="products.html?category=OUTERWEAR">OUTERWEAR</a>
+        <a href="products.html?category=BOTTOMS">BOTTOMS</a>
+        <a href="products.html?category=ACCESSORIES">ACCESSORIES</a>
+      </div>
+      <div class="fullscreen-menu__sublinks">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+        <a href="https://www.pinterest.jp/" target="_blank" rel="noopener noreferrer">PINTEREST</a>
+        <a href="https://line.me/" target="_blank" rel="noopener noreferrer">LINE</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 右スライド式ミニカート -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="ショッピングカート">
+    <div class="cart-drawer__header">
+      <h2 class="cart-drawer__title">SHOPPING CART (<span id="cartDrawerCount">0</span>)</h2>
+      <button type="button" class="cart-drawer__close" id="cartCloseBtn" aria-label="カートを閉じる">×</button>
+    </div>
+    <div class="cart-shipping-bar">
+      <p class="cart-shipping-bar__text" id="cartShippingText">¥15,000（税込）以上のお買い上げで国内送料無料</p>
+      <div class="cart-shipping-bar__track">
+        <div class="cart-shipping-bar__fill" id="cartShippingFill"></div>
+      </div>
+    </div>
+    <div class="cart-drawer__body" id="cartDrawerBody"></div>
+    <div class="cart-drawer__footer" id="cartDrawerFooter">
+      <div class="cart-subtotal">
+        <span class="cart-subtotal__label">SUBTOTAL（税込）</span>
+        <span class="cart-subtotal__amount" id="cartSubtotalAmount">¥0</span>
+      </div>
+      <p class="cart-shipping-note">※送料は¥15,000以上のご注文で無料（通常全国一律 ¥660）</p>
+      <div class="cart-drawer__buttons">
+        <button type="button" class="btn-primary" id="cartCheckoutBtn"><span class="ib">PROCEED TO CHECKOUT /</span> <span class="ib">ご購入手続きへ</span></button>
+        <button type="button" class="btn-outline" id="cartContinueBtn"><span class="ib">CONTINUE SHOPPING /</span> <span class="ib">買い物を続ける</span></button>
+      </div>
+      <div class="cart-checkout-feedback" id="cartCheckoutFeedback" role="status"></div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       PAGE 04：ABOUT（ブランドムービーエリア ＆ 交互非対称3セクション）
+       ======================================================================== -->
+  <main>
+    <!-- 4-1. ブランドムービー・ヒーローエリア（再生/一時停止演出付き） -->
+    <section class="about-movie-hero" id="aboutMovieHero" aria-label="ブランドムービービジュアル">
+      <!-- ★ブランドムービー用の背景ビジュアルを変更したい場合は src を編集してください -->
+      <img
+        src="https://images.unsplash.com/photo-1548783300-70b41bc84f56?auto=format&fit=crop&w=1600&q=85"
+        alt="都市のモノクローム空間を歩く建築的オーバービュー"
+        class="about-movie-hero__bg"
+      >
+      <div class="about-movie-hero__veil" aria-hidden="true"></div>
+
+      <div class="about-movie-hero__content">
+        <span class="eyebrow" style="color: rgba(255,255,255,0.82);">BRAND STORY &amp; PHILOSOPHY</span>
+        <h1 class="about-movie-hero__title en-display">DESIGNED FOR THE QUIET RHYTHM OF THE CITY.</h1>
+        <p class="about-movie-hero__lead lead-copy">
+          <span class="ib">都市のノイズから一歩離れ、</span><span class="ib">自分自身の輪郭を取り戻すために。</span><br>
+          <span class="ib">URBAN CLOSETは、</span><span class="ib">建築的な造形美とストリートの快適性を</span><span class="ib">掛け合わせた、新しい日常着を提案します。</span>
+        </p>
+      </div>
+
+      <!-- シネマティックモーション再生/一時停止トグル＆タイムコード -->
+      <div class="about-movie-controls">
+        <button type="button" class="movie-toggle-btn" id="movieToggleBtn" aria-pressed="false">❚❚ PAUSE MOTION</button>
+        <span class="movie-timecode" id="movieTimecode">00:01 / TOKYO ARCHIVE</span>
+      </div>
+    </section>
+
+    <!-- ★SECTION 01：ブランドの始まり（左写真 ： 右テキスト 非対称配置） -->
+    <section class="story-section" aria-labelledby="storyHeading01">
+      <div class="container">
+        <div class="story-grid story-grid--01">
+          <div class="story-media reveal">
+            <img
+              src="https://images.unsplash.com/photo-1626688226927-33257a21236f?auto=format&fit=crop&w=1200&q=85"
+              alt="モダンな都市建築の前をモノトーンの日常着で軽やかに歩く都市生活スナップ"
+              decoding="async"
+            >
+          </div>
+          <div class="story-text reveal">
+            <div class="story-num">01</div>
+            <div class="story-en-label">SECTION 01 / THE ORIGIN</div>
+            <h2 id="storyHeading01" class="story-heading ja-heading">
+              <span class="ib">ブランドの始まり —</span><br>
+              <span class="ib">毎日の服選びを、</span><span class="ib">もっと自由で静かな時間へ</span>
+            </h2>
+            <div class="story-body">
+              <p>私たちの暮らしの周りには、数回洗うだけで形が崩れてしまう安価な服か、日常で気兼ねなく着るには遠すぎる高価な服かの二極があふれています。</p>
+              <p>「気負わずに毎日袖を通せるタフさがありながら、街の風景の中で凛とした品格を保てる服を作りたい」——その小さな問いかけから、URBAN CLOSETは東京でスタートしました。</p>
+              <p>目指したのは、性別や年齢、オンとオフの境界線を軽やかに超えるユニセックスなワードローブ。黒・白・グレーという無彩色のグラデーションの中に、わずかなミリ単位のシルエット設計で個性を宿らせています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ★SECTION 02：素材へのこだわり（左テキスト ： 右写真 非対称配置） -->
+    <section class="story-section story-section--alt" aria-labelledby="storyHeading02">
+      <div class="container">
+        <div class="story-grid story-grid--02">
+          <div class="story-text reveal">
+            <div class="story-num">02</div>
+            <div class="story-en-label">SECTION 02 / MATERIALS &amp; CRAFT</div>
+            <h2 id="storyHeading02" class="story-heading ja-heading">
+              <span class="ib">素材へのこだわり —</span><br>
+              <span class="ib">画面越しでも伝わる密度と、</span><span class="ib">素肌が喜ぶ質感</span>
+            </h2>
+            <div class="story-body">
+              <p>シンプルなデザインの服ほど、生地の良し悪しと縫製の丁寧さがそのまま佇まいに表れます。</p>
+              <p>だからこそ私たちは、1枚で透けずに立体感を保つ8.5オンスのコーマ天竺や、フードが美しく自立する13.2オンスの度詰め裏毛、小雨を弾きながら天然素材のような落ち着きを見せるマットナイロンなど、厳選したファブリックだけを採用しています。</p>
+              <p>さらに、過度な広告費や複雑な中間流通を省き、オンラインストアを中心に直接お客さまへお届けすることで、長く愛せる上質なクオリティを現実的な適正価格で実現しました。</p>
+            </div>
+          </div>
+          <div class="story-media reveal">
+            <img
+              src="https://images.unsplash.com/photo-1603906650843-b58e94d9df4d?auto=format&fit=crop&w=1200&q=85"
+              alt="高密度ファブリックと立体的な織り目の陰影を捉えたマクロ写真"
+              decoding="async"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ★SECTION 03：これからのビジョン（左写真 ： 右テキスト 非対称配置） -->
+    <section class="story-section" aria-labelledby="storyHeading03">
+      <div class="container">
+        <div class="story-grid story-grid--03">
+          <div class="story-media reveal">
+            <img
+              src="https://images.unsplash.com/photo-1753029226995-74b05a344bb1?auto=format&fit=crop&w=1200&q=85"
+              alt="コンクリートと静かな照明で構成されたミニマルなギャラリー空間"
+              decoding="async"
+            >
+          </div>
+          <div class="story-text reveal">
+            <div class="story-num">03</div>
+            <div class="story-en-label">SECTION 03 / FUTURE VISION</div>
+            <h2 id="storyHeading03" class="story-heading ja-heading">
+              <span class="ib">これからのビジョン —</span><br>
+              <span class="ib">1シーズンで終わらない、</span><span class="ib">循環するクローゼット</span>
+            </h2>
+            <div class="story-body">
+              <p>新しい季節が来るたびに、前のシーズンの服を捨てる必要はありません。</p>
+              <p>URBAN CLOSETが展開するアイテムはすべて、過去のコレクションとも未来の新作とも美しく調和する「カプセルワードローブ思想」のもとに設計されています。</p>
+              <p>パートナーや家族とサイズをシェアして着継ぐこと。流行に消費されず、5年後もクローゼットの一軍として残り続けること。必要な分だけを誠実に仕立て、都市で生きる人々の暮らしに長く寄り添うブランドであり続けます。</p>
+            </div>
+            <div style="margin-top: 36px;">
+              <a href="products.html" class="btn-primary" style="text-align: center; padding: 12px 28px;"><span class="ib">EXPLORE 2025 SPRING</span> <span class="ib">COLLECTION →</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       全ページ共通フッター（必須8要素完全網羅）
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand__logo">URBAN CLOSET</a>
+          <p class="footer-brand__tagline">
+            都市で生きる人の、新しいワードローブ。<br>
+            Architectural Unisex Wardrobe Based in Tokyo.
+          </p>
+          <div class="footer-newsletter">
+            <span class="footer-newsletter__label">NEWSLETTER REGISTRATION</span>
+            <form class="footer-newsletter__form js-newsletter-form" novalidate>
+              <label for="footerNewsletterEmail" class="sr-only">フッターニュースレター登録用メールアドレス</label>
+              <input type="email" id="footerNewsletterEmail" class="footer-newsletter__input" placeholder="name@example.com" required>
+              <button type="submit" class="footer-newsletter__btn">SUBSCRIBE</button>
+            </form>
+            <div class="footer-newsletter__msg js-newsletter-feedback" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-col__heading">NAVIGATION</h3>
+          <ul class="footer-col__list">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="products.html">PRODUCTS</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="lookbook.html">LOOKBOOK</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-col__heading">CATEGORIES</h3>
+          <ul class="footer-col__list">
+            <li><a href="products.html">ALL PRODUCTS</a></li>
+            <li><a href="products.html?category=TOPS">TOPS</a></li>
+            <li><a href="products.html?category=OUTERWEAR">OUTERWEAR</a></li>
+            <li><a href="products.html?category=BOTTOMS">BOTTOMS</a></li>
+            <li><a href="products.html?category=ACCESSORIES">ACCESSORIES</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-col__heading">SUPPORT &amp; LEGAL</h3>
+          <ul class="footer-col__list">
+            <li><a href="contact.html">お問い合わせ / CONTACT</a></li>
+            <li><a href="contact.html#faq">よくある質問 / SIZE &amp; FAQ</a></li>
+            <li><a href="contact.html#faq-shipping">配送・サイズ交換について</a></li>
+            <li><button type="button" data-legal-modal="privacy">プライバシーポリシー</button></li>
+            <li><button type="button" data-legal-modal="terms">利用規約</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="footer-sns">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+          <a href="https://www.pinterest.jp/" target="_blank" rel="noopener noreferrer">PINTEREST</a>
+          <a href="https://line.me/" target="_blank" rel="noopener noreferrer">LINE</a>
+        </div>
+        <div class="footer-legal-inline">
+          <button type="button" data-legal-modal="privacy">PRIVACY POLICY</button>
+          <button type="button" data-legal-modal="terms">TERMS OF SERVICE</button>
+        </div>
+        <p class="footer-copyright">&copy; 2025 URBAN CLOSET. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 利用規約・プライバシーポリシー共通モーダル -->
+  <div class="legal-modal" id="legalModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+    <div class="legal-modal__dialog">
+      <div class="legal-modal__header">
+        <h2 class="legal-modal__title" id="legalModalTitle">PRIVACY POLICY</h2>
+        <button type="button" class="legal-modal__close" id="legalModalCloseBtn" aria-label="モーダルを閉じる">×</button>
+      </div>
+      <div class="legal-modal__body" id="legalModalBody"></div>
+    </div>
+  </div>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

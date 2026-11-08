@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ★LOOKBOOKページのタイトル・説明文を変更したい場合はここを編集してください -->
+  <title>LOOKBOOK（2025 SPRING COLLECTION） | URBAN CLOSET（アーバンクローゼット）</title>
+  <meta name="description" content="URBAN CLOSET 2025 SPRING COLLECTION LOOKBOOK。都市の光と陰影を纏う全10スタイルのビジュアルアーカイブと着用アイテム一覧。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0A0A'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Helvetica Neue,Arial,sans-serif' font-size='24' font-weight='400' letter-spacing='2' fill='%23FFFFFF'%3EUC%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       共通グローバルヘッダー（全6ページ完全統一）
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <button type="button" class="header-menu-btn" id="menuOpenBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="fullscreenMenu">
+        <span class="header-menu-btn__bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+        <span class="header-menu-btn__label">MENU</span>
+      </button>
+
+      <a href="index.html" class="header-logo">URBAN CLOSET</a>
+
+      <div class="header-actions">
+        <button type="button" class="header-icon-btn" id="searchToggleBtn" aria-label="商品を検索する">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+          </svg>
+        </button>
+        <button type="button" class="header-icon-btn" id="cartOpenBtn" aria-label="ショッピングカートを開く">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 7h12l1 13H5L6 7z"></path>
+            <path d="M9 7V5a3 3 0 0 1 6 0v2"></path>
+          </svg>
+          <span class="cart-badge js-cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- リアルタイム商品検索パネル -->
+  <div class="search-panel" id="searchPanel" aria-hidden="true">
+    <div class="search-panel__inner">
+      <form class="search-form" id="headerSearchForm" role="search">
+        <label for="headerSearchInput" class="sr-only">キーワードで商品を検索</label>
+        <input type="search" id="headerSearchInput" class="search-form__input" placeholder="商品名・カテゴリー・素材で検索（例：コート、リネン、パンツ）" autocomplete="off">
+        <button type="submit" class="search-form__submit">SEARCH</button>
+        <button type="button" class="search-form__close" id="searchCloseBtn" aria-label="検索パネルを閉じる">×</button>
+      </form>
+      <div class="search-results" id="searchResultsContainer"></div>
+    </div>
+  </div>
+
+  <!-- フルスクリーン黒背景ナビゲーションメニュー（HOME / PRODUCTS / ABOUT / LOOKBOOK / CONTACT） -->
+  <nav class="fullscreen-menu" id="fullscreenMenu" aria-hidden="true" aria-label="メインナビゲーション">
+    <div class="fullscreen-menu__top">
+      <button type="button" class="fullscreen-menu__close" id="menuCloseBtn" aria-label="メニューを閉じる">CLOSE ×</button>
+      <a href="index.html" class="fullscreen-menu__logo">URBAN CLOSET</a>
+      <span></span>
+    </div>
+    <div class="fullscreen-menu__body">
+      <ul class="fullscreen-menu__list">
+        <li class="fullscreen-menu__item">
+          <a href="index.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">01</span>
+            <span class="fullscreen-menu__en">HOME</span>
+            <span class="fullscreen-menu__ja">トップ</span>
+          </a>
+        </li>
+        <li class="fullscreen-menu__item">
+          <a href="products.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">02</span>
+            <span class="fullscreen-menu__en">PRODUCTS</span>
+            <span class="fullscreen-menu__ja">商品一覧</span>
+          </a>
+        </li>
+        <li class="fullscreen-menu__item">
+          <a href="about.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">03</span>
+            <span class="fullscreen-menu__en">ABOUT</span>
+            <span class="fullscreen-menu__ja">ブランドストーリー</span>
+          </a>
+        </li>
+        <li class="fullscreen-menu__item">
+          <a href="lookbook.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">04</span>
+            <span class="fullscreen-menu__en">LOOKBOOK</span>
+            <span class="fullscreen-menu__ja">2025 SPRING ルックブック</span>
+          </a>
+        </li>
+        <li class="fullscreen-menu__item">
+          <a href="contact.html" class="fullscreen-menu__link">
+            <span class="fullscreen-menu__num">05</span>
+            <span class="fullscreen-menu__en">CONTACT</span>
+            <span class="fullscreen-menu__ja">お問い合わせ・FAQ</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="fullscreen-menu__bottom">
+      <div class="fullscreen-menu__sublinks">
+        <a href="products.html?category=TOPS">TOPS</a>
+        <a href="products.html?category=OUTERWEAR">OUTERWEAR</a>
+        <a href="products.html?category=BOTTOMS">BOTTOMS</a>
+        <a href="products.html?category=ACCESSORIES">ACCESSORIES</a>
+      </div>
+      <div class="fullscreen-menu__sublinks">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+        <a href="https://www.pinterest.jp/" target="_blank" rel="noopener noreferrer">PINTEREST</a>
+        <a href="https://line.me/" target="_blank" rel="noopener noreferrer">LINE</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 右スライド式ミニカート -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="ショッピングカート">
+    <div class="cart-drawer__header">
+      <h2 class="cart-drawer__title">SHOPPING CART (<span id="cartDrawerCount">0</span>)</h2>
+      <button type="button" class="cart-drawer__close" id="cartCloseBtn" aria-label="カートを閉じる">×</button>
+    </div>
+    <div class="cart-shipping-bar">
+      <p class="cart-shipping-bar__text" id="cartShippingText">¥15,000（税込）以上のお買い上げで国内送料無料</p>
+      <div class="cart-shipping-bar__track">
+        <div class="cart-shipping-bar__fill" id="cartShippingFill"></div>
+      </div>
+    </div>
+    <div class="cart-drawer__body" id="cartDrawerBody"></div>
+    <div class="cart-drawer__footer" id="cartDrawerFooter">
+      <div class="cart-subtotal">
+        <span class="cart-subtotal__label">SUBTOTAL（税込）</span>
+        <span class="cart-subtotal__amount" id="cartSubtotalAmount">¥0</span>
+      </div>
+      <p class="cart-shipping-note">※送料は¥15,000以上のご注文で無料（通常全国一律 ¥660）</p>
+      <div class="cart-drawer__buttons">
+        <button type="button" class="btn-primary" id="cartCheckoutBtn"><span class="ib">PROCEED TO CHECKOUT /</span> <span class="ib">ご購入手続きへ</span></button>
+        <button type="button" class="btn-outline" id="cartContinueBtn"><span class="ib">CONTINUE SHOPPING /</span> <span class="ib">買い物を続ける</span></button>
+      </div>
+      <div class="cart-checkout-feedback" id="cartCheckoutFeedback" role="status"></div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       PAGE 05：LOOKBOOK（2025 SPRING COLLECTION 全10カット・マソンリー）
+       ======================================================================== -->
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">SEASONAL EDITORIAL</span>
+        <!-- ★LOOKBOOKタイトル・リード文を変更したい場合はここを編集してください -->
+        <h1 class="page-hero__title en-display">2025 SPRING COLLECTION</h1>
+        <p class="page-hero__lead lead-copy">
+          <span class="ib">光と影が交差する春の都市空間。</span>
+          <span class="ib">重厚なアウターから風を纏うリネンまで、</span><span class="ib">黒・白・グレーの階調だけで描く10のスタイリング・アーカイブ。</span><br>
+          <span style="font-size: 0.8125rem;">※各写真をクリックすると拡大表示され、着用アイテムの詳細をご覧いただけます。</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="lookbook-section" aria-label="2025 SPRING ルックブックギャラリー">
+      <div class="container">
+        <!-- ★全10カットのルックカードは js/products-data.js の lookbook 配列から自動描画されます -->
+        <div class="lookbook-masonry" id="lookbookMasonry"></div>
+
+        <div style="text-align: center; margin-top: 24px;">
+          <a href="products.html" class="btn-primary">SHOP ALL 12 COLLECTION ITEMS</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ルック拡大＆着用アイテムリンク付きライトボックス（前後移動・矢印キー・ESC・スワイプ対応） -->
+  <div class="lightbox" id="lightboxModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="ルックブック拡大ビュー">
+    <div class="lightbox__header">
+      <span class="lightbox__counter" id="lightboxCounter">01 / 10</span>
+      <button type="button" class="lightbox__close" id="lightboxCloseBtn" aria-label="拡大ビューを閉じる">CLOSE [×]</button>
+    </div>
+    <div class="lightbox__stage">
+      <div class="lightbox__media-area" id="lightboxMediaArea">
+        <button type="button" class="lightbox__nav lightbox__nav--prev" id="lightboxPrevBtn" aria-label="前のルックへ">← PREV</button>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lightbox__img" id="lightboxImage">
+        <button type="button" class="lightbox__nav lightbox__nav--next" id="lightboxNextBtn" aria-label="次のルックへ">NEXT →</button>
+      </div>
+      <aside class="lightbox__sidebar" id="lightboxSidebar" aria-label="着用アイテム情報"></aside>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       全ページ共通フッター（必須8要素完全網羅）
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand__logo">URBAN CLOSET</a>
+          <p class="footer-brand__tagline">
+            都市で生きる人の、新しいワードローブ。<br>
+            Architectural Unisex Wardrobe Based in Tokyo.
+          </p>
+          <div class="footer-newsletter">
+            <span class="footer-newsletter__label">NEWSLETTER REGISTRATION</span>
+            <form class="footer-newsletter__form js-newsletter-form" novalidate>
+              <label for="footerNewsletterEmail" class="sr-only">フッターニュースレター登録用メールアドレス</label>
+              <input type="email" id="footerNewsletterEmail" class="footer-newsletter__input" placeholder="name@example.com" required>
+              <button type="submit" class="footer-newsletter__btn">SUBSCRIBE</button>
+            </form>
+            <div class="footer-newsletter__msg js-newsletter-feedback" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-col__heading">NAVIGATION</h3>
+          <ul class="footer-col__list">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="products.html">PRODUCTS</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="lookbook.html">LOOKBOOK</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-col__heading">CATEGORIES</h3>
+          <ul class="footer-col__list">
+            <li><a href="products.html">ALL PRODUCTS</a></li>
+            <li><a href="products.html?category=TOPS">TOPS</a></li>
+            <li><a href="products.html?category=OUTERWEAR">OUTERWEAR</a></li>
+            <li><a href="products.html?category=BOTTOMS">BOTTOMS</a></li>
+            <li><a href="products.html?category=ACCESSORIES">ACCESSORIES</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-col__heading">SUPPORT &amp; LEGAL</h3>
+          <ul class="footer-col__list">
+            <li><a href="contact.html">お問い合わせ / CONTACT</a></li>
+            <li><a href="contact.html#faq">よくある質問 / SIZE &amp; FAQ</a></li>
+            <li><a href="contact.html#faq-shipping">配送・サイズ交換について</a></li>
+            <li><button type="button" data-legal-modal="privacy">プライバシーポリシー</button></li>
+            <li><button type="button" data-legal-modal="terms">利用規約</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="footer-sns">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+          <a href="https://www.pinterest.jp/" target="_blank" rel="noopener noreferrer">PINTEREST</a>
+          <a href="https://line.me/" target="_blank" rel="noopener noreferrer">LINE</a>
+        </div>
+        <div class="footer-legal-inline">
+          <button type="button" data-legal-modal="privacy">PRIVACY POLICY</button>
+          <button type="button" data-legal-modal="terms">TERMS OF SERVICE</button>
+        </div>
+        <p class="footer-copyright">&copy; 2025 URBAN CLOSET. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 利用規約・プライバシーポリシー共通モーダル -->
+  <div class="legal-modal" id="legalModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+    <div class="legal-modal__dialog">
+      <div class="legal-modal__header">
+        <h2 class="legal-modal__title" id="legalModalTitle">PRIVACY POLICY</h2>
+        <button type="button" class="legal-modal__close" id="legalModalCloseBtn" aria-label="モーダルを閉じる">×</button>
+      </div>
+      <div class="legal-modal__body" id="legalModalBody"></div>
+    </div>
+  </div>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
