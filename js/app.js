@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ============================================================================
  * URBAN CLOSET（アーバンクローゼット）公式オンラインストア 共通アプリケーションJS
  * ファイル名: js/app.js
@@ -190,7 +190,7 @@
       cartBodyEl.innerHTML =
         '<div class="cart-empty">' +
           '<p class="cart-empty__title">カートに商品が入っていません。</p>' +
-          '<p class="cart-empty__sub">2025 SPRING COLLECTIONの新作アイテムをご覧ください。</p>' +
+          '<p class="cart-empty__sub">2026 SPRING COLLECTIONの新作アイテムをご覧ください。</p>' +
           '<a href="products.html" class="btn-primary">SHOP PRODUCTS</a>' +
         '</div>';
       if (cartFooterEl) cartFooterEl.style.display = 'none';
